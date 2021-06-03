@@ -30,7 +30,7 @@ Client::Client(QWidget *parent)
 	connect(this, &Client::setProgressBar, ui.scanProgressBar, &QProgressBar::setValue);
 	connect(this, &Client::removeItem, ui.threatList, &QListWidget::takeItem);
 	connectToServer();
-	threats = std::make_unique<ThreatList>(u"Threats.kir");
+	threats = std::make_unique<ThreatList>(u"Threats.fof");
 	loadMonitors();
 	loadScanners();
 }
@@ -325,7 +325,7 @@ void Client::setupMonitor(const std::u16string& path)
 
 void Client::loadMonitors()
 {
-	std::u16string filePath = u"Monitors.kir";
+	std::u16string filePath = u"Monitors.fof";
 	BinaryReader reader(filePath);
 	if (!reader.isOpen())
 		return;
@@ -353,7 +353,7 @@ void Client::loadMonitors()
 
 void Client::loadScanners()
 {
-	std::u16string filePath = u"Scanners.kir";
+	std::u16string filePath = u"Scanners.fof";
 
 	BinaryReader reader(filePath);
 	if (!reader.isOpen())
